@@ -2,6 +2,18 @@
 
 所有值得记录的变更都会写在这里。格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [1.0.1] - 2026-11-10
+
+### Added
+
+- DSH 插件适配层：`dsh plugin --profile web add github:lilinshuei/codeforge-team` 一条命令安装，自动注册 `codeforge-team` 技能。
+- `package.json` 与 `cordis.patch.yml`，同时支持 npm 包安装。
+- README 顶部中英双语置顶语。
+
+### Changed
+
+- 安装文档优先展示已经验证过的 GitHub 一行安装；npm 包已构建完成，发布后可用更短写法。
+
 ## [1.0.0] - 2026-11-10
 
 首个公开版本。
@@ -15,5 +27,4 @@
 - 任务卡与交付包模板，要求交付必须带证据。
 - 40 份角色提示词，覆盖产品规划、工程实现、质量安全、体验交付。
 - 三种运行模式：原生多 Agent、Skill 驱动、单模型角色扮演。
-- DSH 插件适配层：`dsh plugin --profile web add codeforge-team` 一条命令安装，自动注册 `codeforge-team` 技能。
 - GitHub Actions 结构校验：角色文件完整性、JSON 可解析、隐私与密钥模式扫描。
