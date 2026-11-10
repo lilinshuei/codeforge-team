@@ -1,0 +1,46 @@
+{
+  "name": "codeforge-team",
+  "version": "1.0.0",
+  "description": "代码工坊专家团：面向 DeepSeek Harness 的 40 人软件交付团队 Skill，覆盖产品规划、工程实现、质量安全与体验交付。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "agent",
+    "agent-team",
+    "skill",
+    "codeforge"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "SKILL.md",
+    "references",
+    "docs",
+    "assets",
+    "examples",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilinshuei/codeforge-team.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lilinshuei/codeforge-team/issues"
+  },
+  "homepage": "https://github.com/lilinshuei/codeforge-team#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

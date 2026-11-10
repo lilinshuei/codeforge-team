@@ -15,4 +15,5 @@
 - 任务卡与交付包模板，要求交付必须带证据。
 - 40 份角色提示词，覆盖产品规划、工程实现、质量安全、体验交付。
 - 三种运行模式：原生多 Agent、Skill 驱动、单模型角色扮演。
+- DSH 插件适配层：`dsh plugin --profile web add codeforge-team` 一条命令安装，自动注册 `codeforge-team` 技能。
 - GitHub Actions 结构校验：角色文件完整性、JSON 可解析、隐私与密钥模式扫描。

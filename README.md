@@ -18,6 +18,10 @@
 
 </div>
 
+> **你觉得自己玩 Agent 就可以不要考虑 PC 性能消耗的话，就来试试这个 Agent 团吧！记得叫他们火力全开！**
+>
+> **If you think playing with Agents means you never have to worry about your PC's performance, try this Agent team — and tell them to go full throttle!**
+
 ---
 
 ## 为什么需要一支团队
@@ -35,6 +39,20 @@ CodeForge 换了一个思路：**不换模型，换组织。**
 ## 30 秒上手
 
 ### 1. 安装
+
+**方式 A：作为 DSH 插件安装（推荐，一条命令）**
+
+```powershell
+dsh plugin --profile web add codeforge-team
+```
+
+桌面端把 `web` 换成 `desktop`。装完重启 DSH，新会话即可使用。也可以直接从 GitHub 安装：
+
+```powershell
+dsh plugin --profile web add github:lilinshuei/codeforge-team
+```
+
+**方式 B：手动复制 Skill**
 
 DeepSeek Harness 会扫描 `skills/<name>/SKILL.md`，不递归。把整个目录放进技能根目录即可。
 

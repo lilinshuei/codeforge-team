@@ -16,6 +16,10 @@ Four groups — Product, Engineering, Quality & Security, Experience & Delivery 
 
 </div>
 
+> **If you think playing with Agents means you never have to worry about your PC's performance, try this Agent team — and tell them to go full throttle!**
+>
+> **你觉得自己玩 Agent 就可以不要考虑 PC 性能消耗的话，就来试试这个 Agent 团吧！记得叫他们火力全开！**
+
 ---
 
 ## The idea
@@ -32,13 +36,27 @@ It is not a model and not a toolset. It is a portable **delivery protocol** writ
 
 ## Quick start
 
+Install it as a DSH plugin:
+
+```powershell
+dsh plugin --profile web add codeforge-team
+```
+
+Use `--profile desktop` for the desktop app, or install straight from GitHub:
+
+```powershell
+dsh plugin --profile web add github:lilinshuei/codeforge-team
+```
+
+Prefer a plain skill copy? DeepSeek Harness discovers `skills/<name>/SKILL.md` (non-recursive):
+
 ```bash
 git clone https://github.com/lilinshuei/codeforge-team.git
 mkdir -p ~/.dsh/skills
 cp -r codeforge-team ~/.dsh/skills/
 ```
 
-DeepSeek Harness discovers `skills/<name>/SKILL.md` (non-recursive). Project-scoped install: `<project>/.dsh/skills/codeforge-team/`.
+Project-scoped install: `<project>/.dsh/skills/codeforge-team/`.
 
 Then start a session and say:
 

@@ -6,6 +6,24 @@
 
 ## DeepSeek Harness
 
+### 插件安装（推荐）
+
+```powershell
+dsh plugin --profile web add codeforge-team
+```
+
+桌面端把 `web` 换成 `desktop`。也可以直接从 GitHub 安装：
+
+```powershell
+dsh plugin --profile web add github:lilinshuei/codeforge-team
+```
+
+装完重启对应 profile，新会话生效。卸载：
+
+```powershell
+dsh plugin --profile web remove codeforge-team
+```
+
 ### 用户级（所有项目可用）
 
 ```bash

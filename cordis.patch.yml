@@ -1,0 +1,16 @@
+# ============================================================================
+# codeforge-team —— DSH bundle patch
+# ============================================================================
+# 这是插件的“挂载声明”。DSH 启动时按 bundle 层栈叠加各插件 patch，
+# 本文件会把 codeforge-team 注册为技能提供者。
+#
+# 安装方式：
+#   dsh plugin --profile web add codeforge-team
+#   dsh plugin --profile desktop add codeforge-team
+# 或直接从 GitHub 安装：
+#   dsh plugin --profile web add github:lilinshuei/codeforge-team
+# ============================================================================
+
+- insert:
+    - id: codeforge-team
+      name: codeforge-team

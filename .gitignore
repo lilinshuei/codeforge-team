@@ -35,3 +35,5 @@ secrets.json
 sessions/
 memory/
 .cache/
+.dsh-test/
+*.tgz
