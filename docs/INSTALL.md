@@ -6,19 +6,23 @@
 
 ## DeepSeek Harness
 
-### 插件安装（推荐）
-
-```powershell
-dsh plugin --profile web add github:lilinshuei/codeforge-team
-```
-
-桌面端把 `web` 换成 `desktop`。npm 包 `codeforge-team@1.0.0` 已构建完成，发布后也可以使用更短的写法：
+### 插件安装（推荐，npm 一行）
 
 ```powershell
 dsh plugin --profile web add codeforge-team
 ```
 
-装完重启对应 profile，新会话生效。卸载：
+在 DSH 桌面端的「添加插件」窗口里，只填包名 `codeforge-team`，不要粘贴整条命令。
+
+包已发布到 npm registry，命令最短，也不依赖 GitHub 访问。
+
+### 从 GitHub 安装
+
+```powershell
+dsh plugin --profile web add github:lilinshuei/codeforge-team
+```
+
+桌面端把 `web` 换成 `desktop`。装完重启对应 profile，新会话生效。卸载：
 
 ```powershell
 dsh plugin --profile web remove codeforge-team

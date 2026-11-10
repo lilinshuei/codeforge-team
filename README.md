@@ -9,6 +9,7 @@
 从需求到上线，分四组推进：产品规划、工程实现、质量安全、体验交付。
 
 [![License](https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square)](LICENSE)
+[![npm](https://img.shields.io/npm/v/codeforge-team?style=flat-square)](https://www.npmjs.com/package/codeforge-team)
 [![Agents](https://img.shields.io/badge/agents-40-6f42c1?style=flat-square)](references/team.json)
 [![Skill](https://img.shields.io/badge/format-SKILL.md-0969da?style=flat-square)](SKILL.md)
 [![dsh-plugin](https://img.shields.io/badge/topic-dsh--plugin-1f6feb?style=flat-square)](https://github.com/topics/dsh-plugin)
@@ -40,19 +41,23 @@ CodeForge 换了一个思路：**不换模型，换组织。**
 
 ### 1. 安装
 
-**方式 A：从 GitHub 安装（推荐，一条命令，现在就能用）**
+**方式 A：从 npm 安装（推荐，一条命令，现在就能用）**
+
+```powershell
+dsh plugin --profile web add codeforge-team
+```
+
+在 DSH 桌面端的「添加插件」窗口里，只填包名 `codeforge-team`，不要粘贴整条命令。
+
+包已发布到 npm registry，命令最短，也不依赖 GitHub 访问。桌面端把 `web` 换成 `desktop`；装完重启 DSH，新会话即可使用。
+
+**方式 B：从 GitHub 安装**
 
 ```powershell
 dsh plugin --profile web add github:lilinshuei/codeforge-team
 ```
 
-桌面端把 `web` 换成 `desktop`。装完重启 DSH，新会话即可使用。
-
-**方式 B：npm 安装（包已打包完成，发布后可用）**
-
-```powershell
-dsh plugin --profile web add codeforge-team
-```
+想跟最新提交，或 npm 拉取不畅时用这条。
 
 **方式 C：手动复制 Skill**
 

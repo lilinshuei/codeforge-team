@@ -2,17 +2,24 @@
 
 所有值得记录的变更都会写在这里。格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [1.0.2] - 2026-11-10
+
+### Fixed
+
+- 移除误入发布产物的发布者主机加固记录（含防火墙、内网端口与安全设置说明）。
+- `SECURITY.md` 不再指向主机环境文档，安全策略只描述本包自身的行为边界。
+
 ## [1.0.1] - 2026-11-10
 
 ### Added
 
 - DSH 插件适配层：`dsh plugin --profile web add github:lilinshuei/codeforge-team` 一条命令安装，自动注册 `codeforge-team` 技能。
-- `package.json` 与 `cordis.patch.yml`，同时支持 npm 包安装。
+- `package.json` 与 `cordis.patch.yml`，作为标准 DSH 插件包结构。
 - README 顶部中英双语置顶语。
 
 ### Changed
 
-- 安装文档优先展示已经验证过的 GitHub 一行安装；npm 包已构建完成，发布后可用更短写法。
+- 安装文档以已经验证过的 GitHub 一行安装为准。
 
 ## [1.0.0] - 2026-11-10
 

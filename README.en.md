@@ -9,6 +9,7 @@
 Four groups — Product, Engineering, Quality & Security, Experience & Delivery — take an idea from requirement to a reviewed, documented, shippable product.
 
 [![License](https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square)](LICENSE)
+[![npm](https://img.shields.io/npm/v/codeforge-team?style=flat-square)](https://www.npmjs.com/package/codeforge-team)
 [![Agents](https://img.shields.io/badge/agents-40-6f42c1?style=flat-square)](references/team.json)
 [![Skill](https://img.shields.io/badge/format-SKILL.md-0969da?style=flat-square)](SKILL.md)
 
@@ -42,11 +43,7 @@ Install it as a DSH plugin straight from GitHub:
 dsh plugin --profile web add github:lilinshuei/codeforge-team
 ```
 
-Use `--profile desktop` for the desktop app. An npm package (`codeforge-team@1.0.0`) is built and validated; once published, the shorter form works too:
-
-```powershell
-dsh plugin --profile web add codeforge-team
-```
+Use `--profile desktop` for the desktop app.
 
 Prefer a plain skill copy? DeepSeek Harness discovers `skills/<name>/SKILL.md` (non-recursive):
 
