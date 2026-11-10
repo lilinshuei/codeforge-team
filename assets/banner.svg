@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="CodeForge Team, a 40-agent software delivery team">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1e"/>
+      <stop offset="1" stop-color="#141b33"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="0.5" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="url(#grid)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+
+  <g font-family="Segoe UI, Microsoft YaHei, PingFang SC, Helvetica, Arial, sans-serif">
+    <text x="72" y="112" font-size="62" font-weight="700" fill="#ffffff" letter-spacing="-1">CodeForge</text>
+    <text x="74" y="158" font-size="21" fill="#9fb0cc">40-agent software delivery team</text>
+    <text x="74" y="196" font-size="19" fill="#6f82a3">代码工坊专家团 · 从需求到上线</text>
+
+    <g transform="translate(74, 238)">
+      <rect x="0" y="0" width="132" height="34" rx="17" fill="#5eead4" fill-opacity="0.12" stroke="#5eead4" stroke-opacity="0.45"/>
+      <circle cx="18" cy="17" r="4" fill="#5eead4"/>
+      <text x="32" y="22" font-size="14" fill="#a7f3e6">产品规划</text>
+
+      <rect x="146" y="0" width="132" height="34" rx="17" fill="#60a5fa" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.45"/>
+      <circle cx="164" cy="17" r="4" fill="#60a5fa"/>
+      <text x="178" y="22" font-size="14" fill="#bfdbfe">工程实现</text>
+
+      <rect x="292" y="0" width="132" height="34" rx="17" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-opacity="0.45"/>
+      <circle cx="310" cy="17" r="4" fill="#f59e0b"/>
+      <text x="324" y="22" font-size="14" fill="#fde68a">质量安全</text>
+
+      <rect x="438" y="0" width="132" height="34" rx="17" fill="#a78bfa" fill-opacity="0.12" stroke="#a78bfa" stroke-opacity="0.45"/>
+      <circle cx="456" cy="17" r="4" fill="#a78bfa"/>
+      <text x="470" y="22" font-size="14" fill="#ddd6fe">体验交付</text>
+    </g>
+  </g>
+
+  <g transform="translate(760, 62)" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="0" y="0" font-size="16" fill="#7c8db0" letter-spacing="3">TEAM SIZE</text>
+    <text x="0" y="104" font-size="104" font-weight="700" fill="#ffffff" fill-opacity="0.94">40</text>
+    <text x="118" y="72" font-size="18" fill="#9fb0cc">1 director</text>
+    <text x="118" y="100" font-size="18" fill="#9fb0cc">4 group leads</text>
+    <text x="118" y="128" font-size="18" fill="#9fb0cc">35 specialists</text>
+
+    <g stroke="url(#accent)" stroke-width="1.5" fill="none" stroke-opacity="0.6">
+      <circle cx="118" cy="166" r="5" fill="#5eead4" stroke="none"/>
+      <circle cx="196" cy="166" r="5" fill="#60a5fa" stroke="none"/>
+      <circle cx="274" cy="166" r="5" fill="#f59e0b" stroke="none"/>
+      <circle cx="352" cy="166" r="5" fill="#a78bfa" stroke="none"/>
+      <path d="M118 166H352"/>
+    </g>
+  </g>
+</svg>

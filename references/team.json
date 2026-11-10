@@ -1,0 +1,874 @@
+{
+  "schema": "codeforge.agent-team/v1",
+  "id": "codeforge-team",
+  "version": "1.0.0",
+  "name": {
+    "en": "CodeForge Expert Team",
+    "zh": "代码工坊专家团"
+  },
+  "description": {
+    "en": "40 specialists in 4 groups cover product planning, engineering, quality & security, and experience delivery, taking an idea from requirement to a shippable, reviewed and deployed product.",
+    "zh": "40位专家分四组协作，覆盖产品规划、工程实现、质量安全与体验交付，从需求到上线交付可运行软件。"
+  },
+  "author": {
+    "name": "lilinshuei",
+    "url": "https://github.com/lilinshuei"
+  },
+  "license": "MIT",
+  "lead": "codeforge-team-lead",
+  "groups": [
+    {
+      "id": "product-planning",
+      "zh": "产品规划组",
+      "en": "Product Planning",
+      "lead": "product-planning-lead",
+      "mission": "把模糊想法变成可验收的产品方案：需求、产品、研究、交互、视觉、市场、数据、商业化与敏捷节奏。",
+      "members": [
+        "requirement-analyst",
+        "product-manager",
+        "ux-researcher",
+        "interaction-designer",
+        "visual-designer",
+        "market-researcher",
+        "product-analyst",
+        "monetization-strategist",
+        "agile-coach"
+      ]
+    },
+    {
+      "id": "engineering",
+      "zh": "工程实现组",
+      "en": "Engineering",
+      "lead": "engineering-lead",
+      "mission": "把方案落成可运行系统：架构、前端、后端、全栈、数据库、API、跨端、建站与 DevOps。",
+      "members": [
+        "solution-architect",
+        "frontend-engineer",
+        "backend-engineer",
+        "fullstack-prototyper",
+        "database-engineer",
+        "api-integrator",
+        "crossplatform-engineer",
+        "website-builder",
+        "devops-engineer"
+      ]
+    },
+    {
+      "id": "quality-security",
+      "zh": "质量安全组",
+      "en": "Quality & Security",
+      "lead": "quality-security-lead",
+      "mission": "守住正确、安全、性能与发布门禁：审查、重构、QA、自动化测试、安全审计、渗透、性能与可访问性。",
+      "members": [
+        "code-reviewer",
+        "refactoring-engineer",
+        "qa-engineer",
+        "test-automation-engineer",
+        "security-code-auditor",
+        "vulnerability-pentester",
+        "performance-engineer",
+        "accessibility-reviewer",
+        "release-gatekeeper"
+      ]
+    },
+    {
+      "id": "experience-delivery",
+      "zh": "体验交付组",
+      "en": "Experience & Delivery",
+      "lead": "experience-delivery-lead",
+      "mission": "把系统变成可交付、可传播的成品：UI 实现、动效、数据可视化、文档、上线、SEO、演示与客户成功。",
+      "members": [
+        "ui-implementation-engineer",
+        "creative-motion-engineer",
+        "data-viz-engineer",
+        "technical-writer",
+        "delivery-manager",
+        "seo-growth-engineer",
+        "presentation-designer",
+        "customer-success-engineer"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "intake",
+      "zh": "受理分级",
+      "owner": "codeforge-team-lead",
+      "output": "任务卡：目标/范围/风险/验收口径"
+    },
+    {
+      "id": "plan",
+      "zh": "立项方案",
+      "owner": "product-planning-lead",
+      "output": "PRD/交互/视觉/里程碑与验收清单"
+    },
+    {
+      "id": "build",
+      "zh": "架构实现",
+      "owner": "engineering-lead",
+      "output": "可运行代码、迁移脚本、部署说明"
+    },
+    {
+      "id": "gate",
+      "zh": "质量门禁",
+      "owner": "quality-security-lead",
+      "output": "审查/测试/安全/性能报告与放行结论"
+    },
+    {
+      "id": "deliver",
+      "zh": "体验交付",
+      "owner": "experience-delivery-lead",
+      "output": "UI 实现、文档、上线与演示物料"
+    },
+    {
+      "id": "review",
+      "zh": "终验复盘",
+      "owner": "codeforge-team-lead",
+      "output": "交付包、证据链、遗留风险与复盘"
+    }
+  ],
+  "policies": {
+    "routing": "需求统一进主理人；主理人只派给四位组长；组长拆给组员；主理人只收组级交付包，不越级指挥；跨组依赖经主理人中转。",
+    "handoff": [
+      "task_id",
+      "from",
+      "to",
+      "objective",
+      "inputs",
+      "constraints",
+      "deliverable",
+      "evidence",
+      "acceptance",
+      "risks",
+      "deadline"
+    ],
+    "acceptance": [
+      "可运行：有真实入口与启动命令",
+      "可验证：测试/日志/截图/接口证据齐全",
+      "安全：高危项清零或有书面豁免",
+      "可维护：文档、回滚与负责人明确"
+    ],
+    "scaling": {
+      "mode": "auto-intake",
+      "rubric": "protocol/INTAKE.md",
+      "dimensions": [
+        "scope",
+        "parallelism",
+        "deliverable",
+        "risk",
+        "ambiguity",
+        "verification"
+      ],
+      "maxScore": 18,
+      "tiers": [
+        {
+          "id": "lite",
+          "label": "精简档",
+          "min": 0,
+          "max": 5,
+          "size": "1 lead + 1 group lead + 2-4 specialists"
+        },
+        {
+          "id": "standard",
+          "label": "标准档",
+          "min": 6,
+          "max": 11,
+          "size": "1 lead + 2-3 group leads + 6-10 specialists"
+        },
+        {
+          "id": "full",
+          "label": "全量档",
+          "min": 12,
+          "max": 18,
+          "size": "40"
+        }
+      ],
+      "override": "用户点名档位 > 强制全量 > 显式范围 > 评分；边界分数向上取档",
+      "announce": "开工前一行编队广播，不阻塞等待确认",
+      "escalate": "计划阶段 >=3 组有交付物 / 任务卡 >=9 / 新增生产或安全要求 / 用户追加范围",
+      "downgrade": "只在波次边界释放无任务角色，不打断运行中的工作"
+    }
+  },
+  "members": [
+    {
+      "id": "codeforge-team-lead",
+      "name": {
+        "en": "Shen Li",
+        "zh": "沈砺"
+      },
+      "profession": {
+        "en": "Development Department Director",
+        "zh": "项目开发部门主管"
+      },
+      "description": "Development department director coordinating 4 group leads and 35 specialists across scoping, dispatch, supervision, acceptance and external delivery.",
+      "avatar": "avatars/codeforge-team-lead.png",
+      "role": "lead",
+      "group": "executive",
+      "reports_to": null,
+      "profile": "lead"
+    },
+    {
+      "id": "product-planning-lead",
+      "name": {
+        "en": "Gu Yan",
+        "zh": "顾砚"
+      },
+      "profession": {
+        "en": "Product Planning Group Lead",
+        "zh": "产品规划组长"
+      },
+      "description": "Product planning group lead managing 9 product and research specialists to turn fuzzy ideas into acceptable product plans.",
+      "avatar": "avatars/product-planning-lead.png",
+      "role": "member",
+      "reports_to": "codeforge-team-lead",
+      "profile": "plan-lead",
+      "group": "product-planning"
+    },
+    {
+      "id": "engineering-lead",
+      "name": {
+        "en": "Cheng Qi",
+        "zh": "程启"
+      },
+      "profession": {
+        "en": "Engineering Group Lead",
+        "zh": "工程实现组长"
+      },
+      "description": "Engineering group lead managing 9 development specialists to turn product plans into running, maintainable software.",
+      "avatar": "avatars/engineering-lead.png",
+      "role": "member",
+      "reports_to": "codeforge-team-lead",
+      "profile": "build-lead",
+      "group": "engineering"
+    },
+    {
+      "id": "quality-security-lead",
+      "name": {
+        "en": "Wei Heng",
+        "zh": "卫衡"
+      },
+      "profession": {
+        "en": "Quality & Security Group Lead",
+        "zh": "质量安全组长"
+      },
+      "description": "Quality and security group lead managing 9 review, test and security specialists to guard code quality and release gates.",
+      "avatar": "avatars/quality-security-lead.png",
+      "role": "member",
+      "reports_to": "codeforge-team-lead",
+      "profile": "review-lead",
+      "group": "quality-security"
+    },
+    {
+      "id": "experience-delivery-lead",
+      "name": {
+        "en": "Yan Zuo",
+        "zh": "颜作"
+      },
+      "profession": {
+        "en": "Experience & Delivery Group Lead",
+        "zh": "体验交付组长"
+      },
+      "description": "Experience and delivery group lead managing 8 specialists to turn a working build into a launch-ready, presentable and supportable product.",
+      "avatar": "avatars/experience-delivery-lead.png",
+      "role": "member",
+      "reports_to": "codeforge-team-lead",
+      "profile": "deliver-lead",
+      "group": "experience-delivery"
+    },
+    {
+      "id": "requirement-analyst",
+      "name": {
+        "en": "Wen Xu",
+        "zh": "闻需"
+      },
+      "profession": {
+        "en": "Requirement Analyst",
+        "zh": "需求分析师"
+      },
+      "description": "Turns fuzzy ideas into verifiable requirements with user stories, acceptance criteria, scope boundaries and open questions.",
+      "avatar": "avatars/requirement-analyst.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "plan"
+    },
+    {
+      "id": "product-manager",
+      "name": {
+        "en": "Ming Ce",
+        "zh": "明策"
+      },
+      "profession": {
+        "en": "Product Manager",
+        "zh": "产品经理"
+      },
+      "description": "Turns requirements into executable product plans with PRD, roadmap, priorities, metrics and trade-offs.",
+      "avatar": "avatars/product-manager.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "plan"
+    },
+    {
+      "id": "ux-researcher",
+      "name": {
+        "en": "Cha Yan",
+        "zh": "察言"
+      },
+      "profession": {
+        "en": "UX Researcher",
+        "zh": "用户研究员"
+      },
+      "description": "Gathers real user evidence through interviews, observation and usability tests, and delivers actionable experience insights.",
+      "avatar": "avatars/ux-researcher.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "research"
+    },
+    {
+      "id": "interaction-designer",
+      "name": {
+        "en": "Zhi Jing",
+        "zh": "织径"
+      },
+      "profession": {
+        "en": "Interaction Designer",
+        "zh": "交互设计师"
+      },
+      "description": "Designs information architecture, task flows and interface structure, covering loading, empty, error and permission states.",
+      "avatar": "avatars/interaction-designer.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "design"
+    },
+    {
+      "id": "visual-designer",
+      "name": {
+        "en": "Hui Zhen",
+        "zh": "绘真"
+      },
+      "profession": {
+        "en": "Visual Designer",
+        "zh": "视觉设计师"
+      },
+      "description": "Defines visual direction, design tokens and component specs for a consistent, buildable visual language.",
+      "avatar": "avatars/visual-designer.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "design"
+    },
+    {
+      "id": "market-researcher",
+      "name": {
+        "en": "Guan Lan",
+        "zh": "观澜"
+      },
+      "profession": {
+        "en": "Market & Competitor Researcher",
+        "zh": "市场与竞品研究员"
+      },
+      "description": "Uses traceable market and competitor evidence to judge opportunities, differentiation and entry risks.",
+      "avatar": "avatars/market-researcher.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "research"
+    },
+    {
+      "id": "product-analyst",
+      "name": {
+        "en": "Shu Heng",
+        "zh": "数衡"
+      },
+      "profession": {
+        "en": "Product Analytics Specialist",
+        "zh": "产品数据分析师"
+      },
+      "description": "Builds metric trees, tracking plans and experiment designs so product decisions are data-informed.",
+      "avatar": "avatars/product-analyst.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "analyze"
+    },
+    {
+      "id": "monetization-strategist",
+      "name": {
+        "en": "Mou Shang",
+        "zh": "谋商"
+      },
+      "profession": {
+        "en": "Monetization Strategist",
+        "zh": "商业化策划"
+      },
+      "description": "Designs business models, pricing and unit economics that keep the product profitable.",
+      "avatar": "avatars/monetization-strategist.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "plan"
+    },
+    {
+      "id": "agile-coach",
+      "name": {
+        "en": "Qi Cheng",
+        "zh": "齐程"
+      },
+      "profession": {
+        "en": "Agile Delivery Coach",
+        "zh": "敏捷交付教练"
+      },
+      "description": "Breaks goals into milestones and iterations, tracks progress, dependencies and risks, and keeps delivery on cadence.",
+      "avatar": "avatars/agile-coach.png",
+      "role": "member",
+      "group": "product-planning",
+      "reports_to": "product-planning-lead",
+      "profile": "process"
+    },
+    {
+      "id": "solution-architect",
+      "name": {
+        "en": "Cheng Zhong",
+        "zh": "承重"
+      },
+      "profession": {
+        "en": "Solution Architect",
+        "zh": "系统架构师"
+      },
+      "description": "Turns requirements into an evolvable architecture with boundaries, technology choices, interfaces, quality attributes and decision records.",
+      "avatar": "avatars/solution-architect.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "architect"
+    },
+    {
+      "id": "frontend-engineer",
+      "name": {
+        "en": "Ji Ye",
+        "zh": "纪页"
+      },
+      "profession": {
+        "en": "Frontend Engineer",
+        "zh": "前端工程师"
+      },
+      "description": "Builds high-quality web interfaces that are componentized, accessible, clearly stated and within performance budgets.",
+      "avatar": "avatars/frontend-engineer.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "backend-engineer",
+      "name": {
+        "en": "Zhen Yue",
+        "zh": "镇岳"
+      },
+      "profession": {
+        "en": "Backend Engineer",
+        "zh": "后端工程师"
+      },
+      "description": "Builds reliable server-side systems with clear APIs, strict validation, correct transactions, observability and rollback.",
+      "avatar": "avatars/backend-engineer.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "fullstack-prototyper",
+      "name": {
+        "en": "Su Cheng",
+        "zh": "速成"
+      },
+      "profession": {
+        "en": "Full-stack Prototyper",
+        "zh": "全栈原型工程师"
+      },
+      "description": "Builds a running MVP by the shortest path to validate key assumptions and leave an evolvable foundation.",
+      "avatar": "avatars/fullstack-prototyper.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "database-engineer",
+      "name": {
+        "en": "Cun Zhen",
+        "zh": "存真"
+      },
+      "profession": {
+        "en": "Database Engineer",
+        "zh": "数据库工程师"
+      },
+      "description": "Designs reliable data models, indexes and migrations for correct data, efficient queries and recoverability.",
+      "avatar": "avatars/database-engineer.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "api-integrator",
+      "name": {
+        "en": "Lian Cheng",
+        "zh": "连城"
+      },
+      "profession": {
+        "en": "API & Integration Engineer",
+        "zh": "API 与集成工程师"
+      },
+      "description": "Integrates third-party APIs, SDKs and MCP services reliably, covering contracts, auth, rate limits, retries and fallbacks.",
+      "avatar": "avatars/api-integrator.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "crossplatform-engineer",
+      "name": {
+        "en": "Tong Duan",
+        "zh": "通端"
+      },
+      "profession": {
+        "en": "Cross-platform Engineer",
+        "zh": "跨端与小程序工程师"
+      },
+      "description": "Makes products work consistently on desktop, mobile, PWA and mini programs, handling platform differences and performance limits.",
+      "avatar": "avatars/crossplatform-engineer.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "website-builder",
+      "name": {
+        "en": "Li Zhan",
+        "zh": "立站"
+      },
+      "profession": {
+        "en": "Website Builder",
+        "zh": "网站搭建工程师"
+      },
+      "description": "Builds marketing sites, landing pages and content sites covering structure, performance, SEO basics, forms and publishing.",
+      "avatar": "avatars/website-builder.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "devops-engineer",
+      "name": {
+        "en": "Bu Zhen",
+        "zh": "布阵"
+      },
+      "profession": {
+        "en": "DevOps Engineer",
+        "zh": "DevOps 与部署工程师"
+      },
+      "description": "Builds repeatable build, deploy, monitoring and rollback pipelines so releases do not rely on manual steps.",
+      "avatar": "avatars/devops-engineer.png",
+      "role": "member",
+      "group": "engineering",
+      "reports_to": "engineering-lead",
+      "profile": "build"
+    },
+    {
+      "id": "code-reviewer",
+      "name": {
+        "en": "Shen Wei",
+        "zh": "审微"
+      },
+      "profession": {
+        "en": "Code Reviewer",
+        "zh": "代码审查员"
+      },
+      "description": "Reviews code with evidence for correctness, security, maintainability and test coverage, and reports actionable blockers.",
+      "avatar": "avatars/code-reviewer.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "review"
+    },
+    {
+      "id": "refactoring-engineer",
+      "name": {
+        "en": "Li Jiu",
+        "zh": "砺旧"
+      },
+      "profession": {
+        "en": "Refactoring Engineer",
+        "zh": "重构与代码修改工程师"
+      },
+      "description": "Improves code without changing external behavior through small, verifiable and reversible steps.",
+      "avatar": "avatars/refactoring-engineer.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "build"
+    },
+    {
+      "id": "qa-engineer",
+      "name": {
+        "en": "Yan Zhen",
+        "zh": "验真"
+      },
+      "profession": {
+        "en": "QA Engineer",
+        "zh": "测试工程师"
+      },
+      "description": "Designs risk-based tests covering normal, boundary, abnormal and regression cases, and files reproducible defects.",
+      "avatar": "avatars/qa-engineer.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "verify"
+    },
+    {
+      "id": "test-automation-engineer",
+      "name": {
+        "en": "Ji Yan",
+        "zh": "机验"
+      },
+      "profession": {
+        "en": "Test Automation Engineer",
+        "zh": "自动化测试工程师"
+      },
+      "description": "Builds stable, fast and maintainable automated tests and pipeline gates to prevent regressions.",
+      "avatar": "avatars/test-automation-engineer.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "verify"
+    },
+    {
+      "id": "security-code-auditor",
+      "name": {
+        "en": "Shou Ma",
+        "zh": "守码"
+      },
+      "profession": {
+        "en": "Security Code Auditor",
+        "zh": "安全代码审计师"
+      },
+      "description": "Finds security defects through threat modeling and code audit, with verifiable remediation advice.",
+      "avatar": "avatars/security-code-auditor.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "review"
+    },
+    {
+      "id": "vulnerability-pentester",
+      "name": {
+        "en": "Po Zhen",
+        "zh": "破阵"
+      },
+      "profession": {
+        "en": "Vulnerability & Pentest Specialist",
+        "zh": "漏洞排查与渗透测试师"
+      },
+      "description": "Runs authorized black-box assessment and penetration verification with non-destructive PoCs and a fix loop.",
+      "avatar": "avatars/vulnerability-pentester.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "review"
+    },
+    {
+      "id": "performance-engineer",
+      "name": {
+        "en": "Xun Liu",
+        "zh": "迅流"
+      },
+      "profession": {
+        "en": "Performance Engineer",
+        "zh": "性能优化工程师"
+      },
+      "description": "Finds bottlenecks with baselines and profiling, then optimizes latency, throughput and resource cost within budget.",
+      "avatar": "avatars/performance-engineer.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "verify"
+    },
+    {
+      "id": "accessibility-reviewer",
+      "name": {
+        "en": "Tong Da",
+        "zh": "通达"
+      },
+      "profession": {
+        "en": "Accessibility & Compatibility Reviewer",
+        "zh": "可访问性与兼容性审查员"
+      },
+      "description": "Audits accessibility and compatibility against WCAG and real-device standards, covering keyboard, screen readers, contrast and responsive behavior.",
+      "avatar": "avatars/accessibility-reviewer.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "review"
+    },
+    {
+      "id": "release-gatekeeper",
+      "name": {
+        "en": "Shou Guan",
+        "zh": "守关"
+      },
+      "profession": {
+        "en": "Release Quality Gatekeeper",
+        "zh": "发布质量守门员"
+      },
+      "description": "Verifies every release gate and signs off as passed, conditionally passed or blocked.",
+      "avatar": "avatars/release-gatekeeper.png",
+      "role": "member",
+      "group": "quality-security",
+      "reports_to": "quality-security-lead",
+      "profile": "gate"
+    },
+    {
+      "id": "ui-implementation-engineer",
+      "name": {
+        "en": "Luo Mo",
+        "zh": "落墨"
+      },
+      "profession": {
+        "en": "UI Implementation Engineer",
+        "zh": "UI 视觉实现工程师"
+      },
+      "description": "Implements designs in code with high fidelity, covering tokens, components, states, responsiveness and performance budgets.",
+      "avatar": "avatars/ui-implementation-engineer.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "build"
+    },
+    {
+      "id": "creative-motion-engineer",
+      "name": {
+        "en": "Liu Guang",
+        "zh": "流光"
+      },
+      "profession": {
+        "en": "Motion & Creative Coding Engineer",
+        "zh": "动效与编码视觉工程师"
+      },
+      "description": "Creates purposeful motion and visual expression with CSS, Canvas, SVG and WebGL while respecting performance and accessibility.",
+      "avatar": "avatars/creative-motion-engineer.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "build"
+    },
+    {
+      "id": "data-viz-engineer",
+      "name": {
+        "en": "Tu Guan",
+        "zh": "图观"
+      },
+      "profession": {
+        "en": "Data Visualization Engineer",
+        "zh": "数据可视化工程师"
+      },
+      "description": "Turns data into clear charts and interactions with accuracy, readability and accessibility.",
+      "avatar": "avatars/data-viz-engineer.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "build"
+    },
+    {
+      "id": "technical-writer",
+      "name": {
+        "en": "Bi Zheng",
+        "zh": "笔正"
+      },
+      "profession": {
+        "en": "Technical Writer",
+        "zh": "技术文档工程师"
+      },
+      "description": "Writes accurate, actionable technical docs including README, API reference, tutorials, operations and release notes.",
+      "avatar": "avatars/technical-writer.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "doc"
+    },
+    {
+      "id": "delivery-manager",
+      "name": {
+        "en": "Ding Pan",
+        "zh": "定盘"
+      },
+      "profession": {
+        "en": "Delivery & Launch Manager",
+        "zh": "交付与上线经理"
+      },
+      "description": "Plans launch and cutover with a release checklist, rollback plan, communication and post-launch monitoring.",
+      "avatar": "avatars/delivery-manager.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "deliver"
+    },
+    {
+      "id": "seo-growth-engineer",
+      "name": {
+        "en": "Yang Fan",
+        "zh": "扬帆"
+      },
+      "profession": {
+        "en": "SEO & Growth Engineer",
+        "zh": "SEO 与增长工程师"
+      },
+      "description": "Grows organic traffic and conversion with technical SEO, content structure and compliant growth experiments.",
+      "avatar": "avatars/seo-growth-engineer.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "deliver"
+    },
+    {
+      "id": "presentation-designer",
+      "name": {
+        "en": "Cheng Jian",
+        "zh": "呈见"
+      },
+      "profession": {
+        "en": "Demo & Presentation Designer",
+        "zh": "演示与汇报设计师"
+      },
+      "description": "Turns project results into persuasive presentations with narrative, visuals, demo script and Q&A preparation.",
+      "avatar": "avatars/presentation-designer.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "deliver"
+    },
+    {
+      "id": "customer-success-engineer",
+      "name": {
+        "en": "Hu Xing",
+        "zh": "护行"
+      },
+      "profession": {
+        "en": "Customer Success Engineer",
+        "zh": "客户成功与支持工程师"
+      },
+      "description": "Designs onboarding, support and feedback loops so users adopt the product and keep getting value.",
+      "avatar": "avatars/customer-success-engineer.png",
+      "role": "member",
+      "group": "experience-delivery",
+      "reports_to": "experience-delivery-lead",
+      "profile": "deliver"
+    }
+  ]
+}

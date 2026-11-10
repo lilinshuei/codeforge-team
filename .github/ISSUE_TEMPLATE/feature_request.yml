@@ -1,0 +1,35 @@
+name: Feature request
+description: 提议新角色、新流程或新的宿主适配
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你想解决什么问题
+      description: 先说场景，不要直接给方案
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你的建议
+      description: 如果涉及协议改动，请说明会影响哪些文件
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 类型
+      options:
+        - 新角色
+        - 新分组
+        - 判档规则
+        - 交付契约
+        - 宿主适配
+        - 文档
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 你验证过吗
+      description: 如果有真实使用案例，说明宿主、版本和结果

@@ -1,0 +1,82 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  structure:
+    name: 结构与隐私校验
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate skill, roster and privacy
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          errors = []
+
+          team = json.loads((root / "references/team.json").read_text(encoding="utf-8"))
+          members = team.get("members", [])
+          ids = [m.get("id") for m in members]
+
+          if len(ids) != 40:
+              errors.append(f"expected 40 roles, got {len(ids)}")
+          if len(ids) != len(set(ids)):
+              errors.append("duplicate role ids")
+
+          groups = {g["id"] for g in team.get("groups", [])}
+          for m in members:
+              if not (root / "references/agents" / f'{m.get("id")}.md').exists():
+                  errors.append(f'missing agent file: {m.get("id")}')
+              if m.get("reports_to") is not None and m["reports_to"] not in ids:
+                  errors.append(f'{m.get("id")}: unknown reports_to')
+              if m.get("group") not in groups and m.get("group") != "executive":
+                  errors.append(f'{m.get("id")}: unknown group {m.get("group")}')
+
+          skill = (root / "SKILL.md").read_text(encoding="utf-8")
+          if not skill.startswith("---"):
+              errors.append("SKILL.md missing frontmatter")
+          else:
+              fm = skill.split("---", 2)[1]
+              for key in ("name:", "description:"):
+                  if key not in fm:
+                      errors.append(f"SKILL.md frontmatter missing {key}")
+
+          scanned = [root / "SKILL.md", *root.glob("README*.md")]
+          scanned += [p for d in ("references", "docs", "examples", "assets") for p in (root / d).rglob("*") if p.is_file()]
+
+          forbidden = re.compile(r"C:\\Users|/Users/|@qq\.com|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}")
+          for p in scanned:
+              if p.suffix.lower() not in {".md", ".json", ".yml", ".yaml", ".svg", ".txt"}:
+                  continue
+              text = p.read_text(encoding="utf-8", errors="ignore")
+              for match in forbidden.finditer(text):
+                  errors.append(f"{p}: forbidden pattern {match.group(0)[:16]}...")
+              if len(text.encode("utf-8")) > 400_000:
+                  errors.append(f"{p}: file too large")
+
+          admin = (root / "references/team.json").read_text(encoding="utf-8")
+          if '"email"' in admin:
+              errors.append("team.json must not contain an email field")
+
+          if errors:
+              print("\n".join(f"- {e}" for e in errors))
+              sys.exit(1)
+
+          print(f"OK: {len(ids)} roles, {len(groups)} groups, no private patterns found")
+          PY

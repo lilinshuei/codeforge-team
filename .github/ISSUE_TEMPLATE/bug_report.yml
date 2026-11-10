@@ -1,0 +1,46 @@
+name: Bug report
+description: 报告协议、角色或文档中的问题
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请只描述问题本身，不要贴真实客户数据、内部项目名、Token 或本机绝对路径。
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 你期望的行为 vs 实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现方式
+      description: 你给 Agent 的原话、宿主与版本、安装路径（用 `<项目>` 代替真实路径）
+      placeholder: |
+        宿主：DeepSeek Harness 0.1.x
+        安装：用户级 skills 目录
+        原话：用代码工坊专家团……
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: 影响范围
+      options:
+        - SKILL.md 调度
+        - 判档 / 升档
+        - 任务卡 / 交付包
+        - 角色提示词
+        - 安装与文档
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关片段（已脱敏）
+      description: 只贴必要片段；删掉路径、邮箱、凭据
+      render: text
