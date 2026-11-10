@@ -36,16 +36,16 @@ It is not a model and not a toolset. It is a portable **delivery protocol** writ
 
 ## Quick start
 
-Install it as a DSH plugin:
-
-```powershell
-dsh plugin --profile web add codeforge-team
-```
-
-Use `--profile desktop` for the desktop app, or install straight from GitHub:
+Install it as a DSH plugin straight from GitHub:
 
 ```powershell
 dsh plugin --profile web add github:lilinshuei/codeforge-team
+```
+
+Use `--profile desktop` for the desktop app. An npm package (`codeforge-team@1.0.0`) is built and validated; once published, the shorter form works too:
+
+```powershell
+dsh plugin --profile web add codeforge-team
 ```
 
 Prefer a plain skill copy? DeepSeek Harness discovers `skills/<name>/SKILL.md` (non-recursive):

@@ -9,13 +9,13 @@
 ### 插件安装（推荐）
 
 ```powershell
-dsh plugin --profile web add codeforge-team
+dsh plugin --profile web add github:lilinshuei/codeforge-team
 ```
 
-桌面端把 `web` 换成 `desktop`。也可以直接从 GitHub 安装：
+桌面端把 `web` 换成 `desktop`。npm 包 `codeforge-team@1.0.0` 已构建完成，发布后也可以使用更短的写法：
 
 ```powershell
-dsh plugin --profile web add github:lilinshuei/codeforge-team
+dsh plugin --profile web add codeforge-team
 ```
 
 装完重启对应 profile，新会话生效。卸载：
