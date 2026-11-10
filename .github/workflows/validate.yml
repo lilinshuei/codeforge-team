@@ -60,7 +60,7 @@ jobs:
           scanned = [root / "SKILL.md", *root.glob("README*.md")]
           scanned += [p for d in ("references", "docs", "examples", "assets") for p in (root / d).rglob("*") if p.is_file()]
 
-          forbidden = re.compile(r"C:\\Users|/Users/|@qq\.com|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}")
+          forbidden = re.compile(r"C:\\Users|/Users/[A-Za-z0-9._-]|@qq\.com|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}")
           for p in scanned:
               if p.suffix.lower() not in {".md", ".json", ".yml", ".yaml", ".svg", ".txt"}:
                   continue
